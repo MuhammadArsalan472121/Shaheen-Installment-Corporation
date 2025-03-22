@@ -1,5 +1,5 @@
 
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { 
   Phone, 
   Mail, 
@@ -63,12 +63,12 @@ const Footer = () => {
             <ul className="space-y-3">
               {['Home', 'Products', 'About', 'Contact'].map((item) => (
                 <li key={item}>
-                  <NavLink
+                  <Link
                     to={item === 'Home' ? '/' : `/${item.toLowerCase()}`}
                     className="text-white/70 hover:text-white transition-colors duration-200 text-sm flex items-center"
                   >
                     <span className="mr-2">›</span> {item}
-                  </NavLink>
+                  </Link>
                 </li>
               ))}
             </ul>
