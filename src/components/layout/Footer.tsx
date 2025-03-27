@@ -1,4 +1,3 @@
-
 import { Link } from "react-router-dom";
 import { 
   Phone, 
@@ -10,6 +9,7 @@ import {
   Youtube 
 } from "lucide-react";
 import { cn } from "@/lib/utils";
+import sicLogo from "@/assets/SICLogo1.png";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -22,11 +22,16 @@ const Footer = () => {
           <div className="space-y-5">
             <div className="flex items-center space-x-3">
               <div className="relative h-10 w-10 overflow-hidden rounded-full bg-white flex items-center justify-center">
-                <span className="text-shaheen-800 font-bold text-lg">SC</span>
+                <img 
+                  src={sicLogo} 
+                  alt="SIC Logo" 
+                  className="h-full w-full object-contain p-1"
+                />
               </div>
               <div className="font-semibold text-xl">
                 <span>Shaheen</span>
                 <span className="text-accent-yellow"> Installment</span>
+                <span> Corporation</span>
               </div>
             </div>
             <p className="text-white/70 text-sm leading-relaxed">
@@ -80,15 +85,18 @@ const Footer = () => {
             <ul className="space-y-4">
               <li className="flex items-start space-x-3 text-sm">
                 <Phone size={18} className="text-accent-yellow mt-0.5" />
-                <span className="text-white/70">+92 300 1234567</span>
+                <div className="text-white/70">
+                  <div>+92 310 9205439</div>
+                  <div>+92 312 1578099</div>
+                </div>
               </li>
               <li className="flex items-start space-x-3 text-sm">
                 <Mail size={18} className="text-accent-yellow mt-0.5" />
-                <span className="text-white/70">info@shaheeninstallment.com</span>
+                <span className="text-white/70">shaheen.installment.corporation<br></br>@gmail.com</span>
               </li>
               <li className="flex items-start space-x-3 text-sm">
                 <MapPin size={18} className="text-accent-yellow mt-0.5" />
-                <span className="text-white/70">Main Market, Kamra Cantt, Attock, Punjab, Pakistan</span>
+                <span className="text-white/70">Near Askari Bank, <br></br>Main G.T. Road, Kamra Cantt, Attock, Pakistan</span>
               </li>
             </ul>
           </div>

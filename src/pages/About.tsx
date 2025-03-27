@@ -1,10 +1,11 @@
-
 import { motion } from "framer-motion";
 import SectionHeading from "@/components/ui/section-heading";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { NavLink } from "react-router-dom";
 import { Phone, Users, Calendar, Target, CheckCircle } from "lucide-react";
+import shopFrontImage from "@/assets/shopFront.png";
+import MA_ourTeam_OM from "@/assets/MA_ourTeam_OM.png";
 
 const AboutPage = () => {
   return (
@@ -19,9 +20,8 @@ const AboutPage = () => {
           >
             <SectionHeading 
               title="About Shaheen Installment Corporation" 
-              subtitle="Learn more about our business and our mission to provide affordable products on easy installments."
-              centered
-            />
+              subtitle="Learn more about our business and our mission which is to provide affordable products on easy installments."
+             />
           </motion.div>
           
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mt-12">
@@ -33,13 +33,13 @@ const AboutPage = () => {
               <div className="bg-shaheen-50 p-8 rounded-2xl">
                 <h3 className="text-2xl font-semibold text-shaheen-900 mb-4">Our Story</h3>
                 <p className="text-muted-foreground mb-4">
-                  Shaheen Installment Corporation was established in 2015 with a vision to make quality products accessible to everyone through affordable installment plans. Located in Kamra, Attock, we started with a small inventory of mobile phones and gradually expanded our product range to include various household and electronic items.
+                  Shaheen Installment Corporation was established in 2009 with a vision to make quality products accessible to everyone through affordable installment plans. Located in Kamra, Attock, we started with a small inventory of household appliances and gradually expanded our product range and electronic items.
                 </p>
                 <p className="text-muted-foreground mb-4">
                   Over the years, we have built a reputation for providing genuine products, transparent installment plans, and exceptional customer service. Our commitment to integrity and customer satisfaction has made us a trusted name in the region.
                 </p>
                 <p className="text-muted-foreground">
-                  Today, we serve hundreds of customers every month, helping them fulfill their needs without financial strain through our flexible installment options.
+                  Today, we serve Thousands of customers every month, helping them fulfill their needs without financial strain through our flexible installment options.
                 </p>
               </div>
             </motion.div>
@@ -51,14 +51,14 @@ const AboutPage = () => {
             >
               <div className="relative h-full rounded-2xl overflow-hidden">
                 <img 
-                  src="https://images.unsplash.com/photo-1556742077-0a6b6a24b2fd?q=80&w=3474&auto=format&fit=crop" 
+                  src={shopFrontImage}
                   alt="Shaheen Installment Store" 
                   className="w-full h-full object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end">
                   <div className="p-8">
                     <h3 className="text-white text-xl font-semibold mb-2">Our Store</h3>
-                    <p className="text-white/80">Main Market, Kamra Cantt, Attock, Punjab, Pakistan</p>
+                    <p className="text-white/80">Near Askari Bank, Main G.T. Road, Kamra Cantt, Attock, Pakistan</p>
                   </div>
                 </div>
               </div>
@@ -116,7 +116,6 @@ const AboutPage = () => {
             <SectionHeading 
               title="Our Core Values" 
               subtitle="These principles guide everything we do at Shaheen Installment Corporation."
-              centered
             />
           </motion.div>
           
@@ -176,29 +175,28 @@ const AboutPage = () => {
             <SectionHeading 
               title="Our Team" 
               subtitle="Meet the dedicated people behind Shaheen Installment Corporation."
-              centered
             />
           </motion.div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
             {[
               {
-                name: "Ahmed Shaheen",
+                name: "Muhammad Rafique",
                 role: "Founder & CEO",
-                image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=3387&auto=format&fit=crop",
-                bio: "With over 15 years of experience in retail, Ahmed founded Shaheen Installment Corporation to make quality products accessible to everyone."
+                // image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=3387&auto=format&fit=crop",
+                bio: "With over 15 years of experience in retail, Muhammad Rafique founded Shaheen Installment Corporation to make quality products accessible to everyone."
               },
               {
-                name: "Sara Khan",
+                name: "Muhammad Arsalan",
                 role: "Operations Manager",
-                image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=3387&auto=format&fit=crop",
-                bio: "Sara ensures that our day-to-day operations run smoothly and that our customers receive the best possible service."
+                image: MA_ourTeam_OM,
+                bio: "Muhammad Arsalan ensures that our day-to-day operations run smoothly and that our customers receive the best possible service."
               },
               {
-                name: "Imran Ali",
+                name: "Tanveer Butt",
                 role: "Customer Relations",
-                image: "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?q=80&w=2662&auto=format&fit=crop",
-                bio: "Imran is dedicated to building strong relationships with our customers and addressing their needs efficiently."
+                // image: "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?q=80&w=2662&auto=format&fit=crop",
+                bio: "Tanveer Butt is dedicated to building strong relationships with our customers and addressing their needs efficiently."
               }
             ].map((member, index) => (
               <motion.div

@@ -1,4 +1,3 @@
-
 import { motion } from "framer-motion";
 import SectionHeading from "@/components/ui/section-heading";
 import { Phone, Mail, MapPin, Clock, Facebook, Instagram, Youtube } from "lucide-react";
@@ -38,8 +37,8 @@ const ContactPage = () => {
                   </div>
                   <div>
                     <p className="text-sm text-muted-foreground">Phone</p>
-                    <p className="font-medium text-shaheen-900">+92 300 1234567</p>
-                    <p className="font-medium text-shaheen-900">+92 300 7654321</p>
+                    <p className="font-medium text-shaheen-900">+92 310 9205439</p>
+                    <p className="font-medium text-shaheen-900">+92 312 1578099</p>
                   </div>
                 </div>
                 
@@ -49,8 +48,7 @@ const ContactPage = () => {
                   </div>
                   <div>
                     <p className="text-sm text-muted-foreground">Email</p>
-                    <p className="font-medium text-shaheen-900">info@shaheeninstallment.com</p>
-                    <p className="font-medium text-shaheen-900">support@shaheeninstallment.com</p>
+                    <p className="font-medium text-shaheen-900">shaheen.installment.corporation@gmail.com</p>
                   </div>
                 </div>
                 
@@ -61,7 +59,7 @@ const ContactPage = () => {
                   <div>
                     <p className="text-sm text-muted-foreground">Address</p>
                     <p className="font-medium text-shaheen-900">
-                      Main Market, Kamra Cantt,<br />
+                      Near Askari Bank, Main G.T. Road, Kamra Cantt,<br />
                       Attock, Punjab, Pakistan
                     </p>
                   </div>
@@ -158,15 +156,14 @@ const ContactPage = () => {
           >
             <h3 className="text-xl font-semibold text-shaheen-900 mb-6">Our Location</h3>
             <div className="bg-white rounded-2xl overflow-hidden shadow-md border border-shaheen-100 h-[400px]">
-              <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3321.308894892843!2d72.39713551513!3d33.67688524501452!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38dfa33a8d8b7bd3%3A0x61bc23adef4a7e58!2sKamra%2C%20Attock%2C%20Punjab%2C%20Pakistan!5e0!3m2!1sen!2s!4v1654234567890!5m2!1sen!2s" 
-                width="100%" 
-                height="100%" 
-                style={{ border: 0 }} 
-                allowFullScreen={false} 
-                loading="lazy" 
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3321.1754600707387!2d72.43526521744384!3d33.86696549999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38df1c1985abf7fb%3A0x56979e3384205c95!2sShaheen%20Installment%20Corporation!5e0!3m2!1sen!2s!4v1710849445099!5m2!1sen!2s"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen={true}
+                loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                title="Shaheen Installment Corporation Location"
               ></iframe>
             </div>
           </motion.div>

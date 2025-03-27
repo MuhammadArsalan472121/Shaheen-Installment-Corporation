@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import SectionHeading from "@/components/ui/section-heading";
@@ -7,98 +6,248 @@ import { Button } from "@/components/ui/button";
 import { Search, Filter, X } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { cn } from "@/lib/utils";
+import saadAsiaWMP from "@/assets/washingMachines/saad_asia_WM_P.webp";
+import saadAsiaWMP2 from "@/assets/washingMachines/saad_asia_WM_P2.webp";
+import saadAsiaWMM from "@/assets/washingMachines/saad_asia_WM_M.jpg";
+import fanMagnum from "@/assets/cfans/c_fan_Al_shk_magnum.jpg";
+import fanClassicGold from "@/assets/cfans/c_fan_Al_shk_classic_gold.jpg";
+import fanMarjan from "@/assets/cfans/c_fan_Al_shk_marjan.jpg";
+import fanPedestalBlack from "@/assets/pfans/p_fan_black.png";
+import fanPedestalGrey from "@/assets/pfans/p_fan_grey.png";
+import fanPedestalBlackACDC from "@/assets/pfans/p_fan_balck_Ac_Dc.png";
+import saadAsiaRoomCoolerP from "@/assets/roomCoolers/saad_asia_plastic_Room_Cooler.jpg";
+import lahoriRoomCooler from "@/assets/roomCoolers/lahori_Room_Cooler.png";
+import AcDcPlasticRoomCooler from "@/assets/roomCoolers/AC_DC_P_Room_Cooler.png";
+import NationalIron from "@/assets/Irons/NationalIron.png";
+import WestPointIron from "@/assets/Irons/WestPointIron.png";
+import SamfordIron from "@/assets/Irons/SamfordIron.png";
+import blender2x1 from "@/assets/foodProcessors/blender2x1.png";
+import juicerBlender3x1 from "@/assets/foodProcessors/juicer&blender3x1.png";
+import foodFactory from "@/assets/foodProcessors/foodFactory.png";
+
+// Add type definition before the products array
+interface Product {
+  id: number;
+  name: string;
+  category: string;
+  price: string | number;
+  installmentMonths: string | number;
+  monthlyPayment: string | number;
+  imageUrl: string;
+  features: string[];
+}
 
 // Sample product data
-const allProducts = [
+export const allProducts: Product[] = [
   {
     id: 1,
-    name: "iPhone 15 Pro",
-    category: "Mobile Phones",
-    price: 325000,
-    installmentMonths: 12,
-    monthlyPayment: 27083,
-    imageUrl: "https://images.unsplash.com/photo-1695048133142-1a20484426d8?q=80&w=3570&auto=format&fit=crop",
-    features: ["Latest A17 Pro chip", "48MP camera system", "Action button", "Titanium design"]
+    name: "Saad Asia Plastic Body Washing Machine",
+    category: "Washing Machines",
+    price: "Prices may vary |",
+    installmentMonths: "3-10",
+    monthlyPayment: "Rs 2000 - Rs 5000",
+    imageUrl: saadAsiaWMP,
+    features: ["8.5 KG Capacity", "Energy Efficient", "Tub Clean Function", "Analog Control","2-Year Warranty"]
   },
   {
     id: 2,
-    name: "Audionic Signature Series",
-    category: "Audio Systems",
-    price: 45000,
-    installmentMonths: 6,
-    monthlyPayment: 7500,
-    imageUrl: "https://images.unsplash.com/photo-1545454675-3531b543be5d?q=80&w=3540&auto=format&fit=crop",
-    features: ["Powerful bass", "Bluetooth connectivity", "LED lights", "Remote control"]
+    name: "Saad Asia Plastic Body Washing Machine",
+    category: "Washing Machines",
+    price: "Prices may vary |",
+    installmentMonths: "3-10",
+    monthlyPayment: "Rs 2000 - Rs 5000",
+    imageUrl: saadAsiaWMP2,
+    features: ["8.5 KG Capacity", "Direct Motion Motor", "Smart Wash", "Multiple Programs","2-Year Warranty"]
   },
   {
     id: 3,
-    name: "Dawlance Electric Oven",
-    category: "Kitchen Appliances",
-    price: 28000,
-    installmentMonths: 4,
-    monthlyPayment: 7000,
-    imageUrl: "https://images.unsplash.com/photo-1567620832903-9fc6debc209f?q=80&w=3380&auto=format&fit=crop",
-    features: ["60L capacity", "Multiple heating modes", "Timer function", "Energy efficient"]
+    name: "Saad Asia Metal Body Washing Machine",
+    category: "Washing Machines",
+    price: "Prices may vary |",
+    installmentMonths: "3-10",
+    monthlyPayment: "Rs 2000 - Rs 5000",
+    imageUrl: saadAsiaWMM,
+    features: ["8 KG Capacity", "Turbo Wash", "Child Lock", "Multiple Wash Programs","2-Year Warranty"]
   },
   {
-    id: 4,
-    name: "Samsung Galaxy S23",
-    category: "Mobile Phones",
-    price: 280000,
-    installmentMonths: 12,
-    monthlyPayment: 23333,
-    imageUrl: "https://images.unsplash.com/photo-1678911820864-e5cdf5646e35?q=80&w=3464&auto=format&fit=crop",
-    features: ["Powerful processor", "Pro-grade camera", "All-day battery", "Dynamic AMOLED display"]
+    id: 4,  
+    name: "Saad Asia Plastic Body Dryer",
+    category: "Dryers",
+    price: "Prices may vary |",
+    installmentMonths: "3-10",
+    monthlyPayment: "Rs 2000 - Rs 5000",
+    imageUrl: saadAsiaWMP,
+    features: ["8.5 KG Capacity", "Energy Efficient", "Tub Clean Function", "Analog Control","2-Year Warranty"]
   },
   {
     id: 5,
-    name: "Audionic Headphones",
-    category: "Audio Systems",
-    price: 12000,
-    installmentMonths: 3,
-    monthlyPayment: 4000,
-    imageUrl: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?q=80&w=3270&auto=format&fit=crop",
-    features: ["Noise cancellation", "Wireless", "Long battery life", "Comfortable fit"]
+    name: "Saad Asia Plastic Body Dryer",
+    category: "Dryers",
+    price: "Prices may vary |",
+    installmentMonths: "3-10",
+    monthlyPayment: "Rs 2000 - Rs 5000",
+    imageUrl: saadAsiaWMP2,
+    features: ["8.5 KG Capacity", "Direct Motion Motor", "Smart Wash", "Multiple Programs","2-Year Warranty"]
   },
   {
     id: 6,
-    name: "Dawlance Refrigerator",
-    category: "Home Appliances",
-    price: 75000,
-    installmentMonths: 12,
-    monthlyPayment: 6250,
-    imageUrl: "https://images.unsplash.com/photo-1571175443880-49e1d25b2bc5?q=80&w=3387&auto=format&fit=crop",
-    features: ["Energy efficient", "Large capacity", "Convertible modes", "Digital display"]
+    name: "Saad Asia Metal Body Dryer",
+    category: "Dryers",
+    price: "Prices may vary |",
+    installmentMonths: "3-10",
+    monthlyPayment: "Rs 2000 - Rs 5000",
+    imageUrl: saadAsiaWMM,
+    features: ["8 KG Capacity", "Turbo Wash", "Child Lock", "Multiple Wash Programs","2-Year Warranty"]
   },
   {
     id: 7,
-    name: "Gree Air Conditioner",
-    category: "Home Appliances",
-    price: 95000,
-    installmentMonths: 12,
-    monthlyPayment: 7917,
-    imageUrl: "https://images.unsplash.com/photo-1635405074683-96d6921a2a68?q=80&w=3164&auto=format&fit=crop",
-    features: ["Inverter technology", "Energy saving", "Remote control", "Air purification"]
+    name: "Alsheikh / Climax Magnum Ceiling Fan",
+    category: "Fans",
+    price: "Prices may vary |",
+    installmentMonths: "3-10",
+    monthlyPayment: "Rs 1000 - Rs 2500",
+    imageUrl: fanMagnum,
+    features: ["56-inch Sweep", "Copper Winding", "High Air Delivery", "2-Year Warranty"]
   },
   {
     id: 8,
-    name: "Electric Iron",
-    category: "Small Appliances",
-    price: 5000,
-    installmentMonths: 3,
-    monthlyPayment: 1667,
-    imageUrl: "https://images.unsplash.com/photo-1585314300256-40505c341f21?q=80&w=3387&auto=format&fit=crop",
-    features: ["Steam function", "Anti-drip", "Non-stick soleplate", "Auto shut-off"]
+    name: "Alsheikh / Climax Classic Gold Ceiling Fan",
+    category: "Fans",
+    price: "Prices may vary |",
+    installmentMonths: "3-10",
+    monthlyPayment: "Rs 1000 - Rs 2500",
+    imageUrl: fanClassicGold,
+    features: ["56-inch Sweep", "Copper Winding", "High Air Delivery", "2-Year Warranty"]
   },
   {
     id: 9,
-    name: "Food Processor",
-    category: "Kitchen Appliances",
-    price: 18000,
-    installmentMonths: 6,
-    monthlyPayment: 3000,
-    imageUrl: "https://images.unsplash.com/photo-1574269909862-7e1d70bb3ed5?q=80&w=3387&auto=format&fit=crop",
-    features: ["Multiple attachments", "Powerful motor", "Large capacity", "Easy to clean"]
+    name: "Alsheikh / Climax Marjan Ceiling Fan",
+    category: "Fans",
+    price: "Prices may vary |",
+    installmentMonths: "3-10",
+    monthlyPayment: "Rs 1000 - Rs 2500",
+    imageUrl: fanMarjan,
+    features: ["56-inch Size", "Double Ball Bearing", "Anti-Rust Coating", "2-Year Warranty"]
+  },
+  {
+    id: 10,
+    name: "Alsheikh / Climax Fancy Black Pedestal Fan",
+    category: "Pedestal Fans",
+    price: "Prices may vary |",
+    installmentMonths: "3-10",
+    monthlyPayment: "Rs 1000 - Rs 2500",
+    imageUrl: fanPedestalBlack,
+    features: ["24-inch Size", "3-Speed Control", "Oscillation Function", "Adjustable Height","2-Year Warranty"]
+  },
+  {
+    id: 11,
+    name: "Alsheikh / Climax Fancy Grey Pedestal Fan",
+    category: "Pedestal Fans",
+    price: "Prices may vary |",
+    installmentMonths: "3-10",
+    monthlyPayment: "Rs 1000 - Rs 2500",
+    imageUrl: fanPedestalGrey,
+    features: ["24-inch Size", "3-Speed Control", "Oscillation Function", "Adjustable Height","2-Year Warranty"]
+  },
+  {
+    id: 12,
+    name: "Alsheikh / Climax Fancy Black AC/DC Pedestal Fan",
+    category: "Pedestal Fans",
+    price: "Prices may vary |",
+    installmentMonths: "3-10",
+    monthlyPayment: "Rs 1000 - Rs 2500",
+    imageUrl: fanPedestalBlackACDC,
+    features: ["20-inch Size", "3-Speed Control", "Oscillation Function", "Adjustable Height","2-Year Warranty"]
+  },
+  {
+    id: 13,
+    name: "Saad Asia Plastic Room Cooler",
+    category: "Room Coolers",
+    price: "Prices may vary",
+    installmentMonths: "3-10",
+    monthlyPayment: "Rs 2000 - Rs 5000",
+    imageUrl: saadAsiaRoomCoolerP,
+    features: ["Shock & rust proof Plastic Body", "Large water tank", "Copper Motor & 25W water pump", "High Air Flow & Honeycomb Cooling pad","2-Year Warranty"]
+  },
+  {
+    id: 14,
+    name: "Lahori Metal Body Room Cooler",
+    category: "Room Coolers",
+    price: "Prices may vary |",
+    installmentMonths: "3-10",
+    monthlyPayment: "Rs 2000 - Rs 5000",
+    imageUrl: lahoriRoomCooler,
+    features: ["Metal Body", "Large Water Tank", "Copper Motor & 25W water pump", "High Air Flow & Honeycomb Cooling pad","2-Year Warranty"]
+  },
+  {
+    id: 15,
+    name: "AC/DC Both Bodies Room Cooler",
+    category: "Room Coolers",
+    price: "Prices may vary |",
+    installmentMonths: "3-10",
+    monthlyPayment: "Rs 2000 - Rs 5000",
+    imageUrl: AcDcPlasticRoomCooler,
+    features: ["Dual Power (AC/DC)", "12V Water Pump & Motor", "Solar Panel Optional", "High Air Flow & Honeycomb Cooling pad","2-Year Warranty"]
+  },
+  {
+    id: 16,
+    name: "National Iron",
+    category: "Electric Irons",
+    price: "Prices may vary |",
+    installmentMonths: "3-10",
+    monthlyPayment: "Rs 1000 - Rs 2500",
+    imageUrl: NationalIron,
+    features: ["Non-stick Coating", "Temperature Control", "Stylish Grip", "1000W Power","2-Year Warranty"]
+  },
+  {
+    id: 17,
+    name: "West Point Iron",
+    category: "Electric Irons",
+    price: "Prices may vary |",
+    installmentMonths: "3-10",
+    monthlyPayment: "Rs 1000 - Rs 2500",
+    imageUrl: WestPointIron,
+    features: ["Temperature Control", "Stylish Grip", "Anti-drip", "1000W Power","2-Year Warranty"]
+  },
+  {
+    id: 18,
+    name: "Samford Iron",
+    category: "Electric Irons",
+    price: "Prices may vary |",
+    installmentMonths: "3-10",
+    monthlyPayment: "Rs 1000 - Rs 2500",
+    imageUrl: SamfordIron,
+    features: ["Ceramic Soleplate", "Stylish Grip", "Anti-calc", "1000W Power","2-Year Warranty"]
+  },
+  {
+    id: 19,
+    name: "2-in-1 Blender & Chopper",
+    category: "Food Processors",
+    price: "Prices may vary |",
+    installmentMonths: "3-10",
+    monthlyPayment: "Rs 1500 - Rs 3000",
+    imageUrl: blender2x1,
+    features: ["Blender & Chopper", "Child Safty Lock", "Over Heating Protection", "350 Watts | 220V - 240V | 50/60Hz Motor", "2 Years Official Brand Warranty"]
+  },
+  {
+    id: 20,
+    name: "3-in-1 Juicer Blender",
+    category: "Food Processors",
+    price: "Prices may vary |",
+    installmentMonths: "3-10",
+    monthlyPayment: "Rs 1500 - Rs 3000",
+    imageUrl: juicerBlender3x1,
+    features: ["Chopper, Grinder & Blender", "Child Safty Lock", "Stainless steel spinner", "500 Watts | 220V - 240V | 50/60Hz  Motor", "2 Years Official Brand Warranty"]
+  },
+  {
+    id: 21,
+    name: "All-in-One Food Factory",
+    category: "Food Processors",
+    price: "Prices may vary |",
+    installmentMonths: "3-10",
+    monthlyPayment: "Rs 1500 - Rs 3000",
+    imageUrl: foodFactory,
+    features: ["Multi-Functionality– 7 Functions","Child Safty Lock", "Advanced Speed Control ", "700 Watts | 220V - 240V | 50/60Hz Motor", "2 Years Official Brand Warranty"]
   }
 ];
 
@@ -168,6 +317,11 @@ const ProductsPage = () => {
                   <X className="h-4 w-4" />
                 </button>
               )}
+            </div>
+            
+            {/* Alert Message */}
+            <div className="text-shaheen-600 text-sm font-medium bg-shaheen-50 px-4 py-2 rounded-lg border border-shaheen-200">
+              ⚠️ Real product may vary from the product displayed in picture
             </div>
 
             <div className="w-full md:w-auto flex">

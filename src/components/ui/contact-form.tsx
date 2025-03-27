@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -14,6 +13,7 @@ const ContactForm = () => {
     message: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [showSuccess, setShowSuccess] = useState(false);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -25,26 +25,59 @@ const ContactForm = () => {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
-    // Simulate form submission
-    setTimeout(() => {
-      toast.success("Your message has been sent successfully!");
-      setFormData({
-        name: "",
-        email: "",
-        phone: "",
-        message: "",
+
+    try {
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          access_key: '36af63d4-1a71-4a59-bf59-e75fd297a524',
+          ...formData
+        })
       });
+
+      if (response.ok) {
+        // Show success message
+        setShowSuccess(true);
+        // Clear form
+        setFormData({
+          name: "",
+          email: "",
+          phone: "",
+          message: "",
+        });
+        // Hide success message after 3 seconds
+        setTimeout(() => {
+          setShowSuccess(false);
+        }, 3000);
+      }
+    } catch (error) {
+      toast.error("Failed to send message. Please try again.");
+    } finally {
       setIsSubmitting(false);
-    }, 1500);
+    }
   };
 
   return (
-    <div className="bg-white rounded-2xl shadow-md p-6 md:p-8">
+    <div className="bg-white rounded-2xl shadow-md p-6 md:p-8 relative">
+      {showSuccess && (
+        <div className="absolute top-4 right-4 bg-green-100 text-green-700 px-4 py-2 rounded-lg">
+          Message sent successfully!
+        </div>
+      )}
+      
       <form onSubmit={handleSubmit} className="space-y-5">
+        <input 
+          type="hidden" 
+          name="access_key" 
+          value="36af63d4-1a71-4a59-bf59-e75fd297a524"
+        />
+
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
           <div className="space-y-2">
             <label htmlFor="name" className="text-sm font-medium text-shaheen-900">
@@ -122,8 +155,8 @@ const ContactForm = () => {
           <div className="flex items-center justify-center md:justify-end space-x-2">
             <Phone size={18} className="text-shaheen-600" />
             <span className="text-sm">Or call us at</span>
-            <a href="tel:+923001234567" className="text-shaheen-600 font-medium hover:underline">
-              +92 300 1234567
+            <a href="tel:+923109205439" className="text-shaheen-600 font-medium hover:underline">
+              +92 310 9205439
             </a>
           </div>
         </div>

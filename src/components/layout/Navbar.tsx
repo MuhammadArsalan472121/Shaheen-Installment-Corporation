@@ -1,9 +1,9 @@
-
 import { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { Menu, X, ChevronDown, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import sicLogo from "@/assets/SICLogo1.png";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -37,10 +37,10 @@ const Navbar = () => {
   return (
     <header 
       className={cn(
-        "fixed top-0 w-full z-50 transition-all duration-300 ease-in-out py-4 px-6 md:px-12",
+        "fixed top-4 left-0 right-0 w-[98%] mx-auto z-50 transition-all duration-300 ease-in-out py-4 px-6 md:px-12 rounded-xl",
         scrolled 
-          ? "bg-white/80 backdrop-blur-lg shadow-sm" 
-          : "bg-transparent"
+          ? "bg-white/70 backdrop-blur-xl shadow-lg bg-opacity-70 border border-white/20 bg-gradient-to-b from-blue-50/50 to-white/50 backdrop-filter backdrop-blur-[8px] bg-[rgba(255,255,255,0.85)]" 
+          : "bg-transparent backdrop-blur-sm bg-white/5"
       )}
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between">
@@ -49,12 +49,17 @@ const Navbar = () => {
           className="flex items-center space-x-2"
           onClick={() => setIsMenuOpen(false)}
         >
-          <div className="relative h-10 w-10 overflow-hidden rounded-full bg-shaheen-500 flex items-center justify-center">
-            <span className="text-white font-bold text-lg">SC</span>
+          <div className="relative h-14 w-14 overflow-hidden flex items-center justify-center">
+            <img 
+              src={sicLogo} 
+              alt="SIC Logo" 
+              className="h-full w-full object-contain p-1"
+            />
           </div>
           <div className="font-semibold text-xl text-shaheen-900">
             <span>Shaheen</span>
             <span className="text-shaheen-500"> Installment</span>
+            <span> Corporation</span>
           </div>
         </NavLink>
 
@@ -76,8 +81,14 @@ const Navbar = () => {
               {link.name}
             </NavLink>
           ))}
-          <Button className="bg-shaheen-500 hover:bg-shaheen-600 text-white rounded-lg transition-all duration-300 hover:shadow-md">
-            Call Now
+          <Button 
+            asChild
+            className="bg-shaheen-500 hover:bg-shaheen-600 text-white rounded-lg transition-all duration-300 hover:shadow-md"
+          >
+            <a href="tel:+923109205439">
+              Call Now
+              <Phone className="ml-2 h-5 w-5" />
+            </a>
           </Button>
         </nav>
 
@@ -114,8 +125,14 @@ const Navbar = () => {
               {link.name}
             </NavLink>
           ))}
-          <Button className="bg-shaheen-500 hover:bg-shaheen-600 text-white rounded-lg mt-4 transition-all duration-300">
-            Call Now
+          <Button 
+            asChild
+            className="bg-shaheen-500 hover:bg-shaheen-600 text-white rounded-lg mt-4 transition-all duration-300"
+          >
+            <a href="tel:+923109205439">
+              Call Now
+              <Phone className="ml-2 h-5 w-5" />
+            </a>
           </Button>
         </nav>
       </div>
