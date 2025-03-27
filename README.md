@@ -1,6 +1,7 @@
-# Welcome to your Lovable project
+# Shaheen Installment Corporation
 
 ## Project info
+A modern web application for Shaheen Installment Corporation, offering easy installment plans for various products in Kamra, Attock.
 
 ## How can I edit this code?
 
@@ -17,7 +18,7 @@ Follow these steps:
 git clone <YOUR_GIT_URL>
 
 # Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+cd shaheen-installment-corporation
 
 # Step 3: Install the necessary dependencies.
 npm i
@@ -40,9 +41,24 @@ npm run dev
 - Click on "New codespace" to launch a new Codespace environment.
 - Edit files directly within the Codespace and commit and push your changes once you're done.
 
+## Deployment
+
+### Deploying to Netlify
+
+1. Push your code to a Git repository (GitHub, GitLab, or Bitbucket)
+2. Log in to [Netlify](https://app.netlify.com/)
+3. Click "Add new site" > "Import an existing project"
+4. Connect to your Git provider and select the repository
+5. Configure the build settings:
+   - Build command: `npm run build`
+   - Publish directory: `dist`
+6. Click "Deploy site"
+
+The site will be automatically deployed when you push changes to your repository.
+
 ## What technologies are used for this project?
 
-This project is built with .
+This project is built with modern web technologies:
 
 - Vite
 - TypeScript
