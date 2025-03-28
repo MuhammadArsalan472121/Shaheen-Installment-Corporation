@@ -9,6 +9,9 @@ import { cn } from "@/lib/utils";
 import saadAsiaWMP from "@/assets/washingMachines/saad_asia_WM_P.webp";
 import saadAsiaWMP2 from "@/assets/washingMachines/saad_asia_WM_P2.webp";
 import saadAsiaWMM from "@/assets/washingMachines/saad_asia_WM_M.jpg";
+import dryerPlastic from "@/assets/dryers/dryerPlastic.png";
+import dryerMetal from "@/assets/dryers/dryerMetal.png";
+import babyDryer from "@/assets/dryers/babyDryer.png";
 import fanMagnum from "@/assets/cfans/cFanMagnum.jpg";
 import fanClassicGold from "@/assets/cfans/cFanClassicGold.jpg";
 import fanMarjan from "@/assets/cfans/cFanMarjan.jpg";
@@ -76,27 +79,27 @@ export const allProducts: Product[] = [
     price: "Prices may vary |",
     installmentMonths: "3-10",
     monthlyPayment: "Rs 2000 - Rs 5000",
-    imageUrl: saadAsiaWMP,
+    imageUrl: dryerPlastic,
     features: ["8.5 KG Capacity", "Energy Efficient", "Tub Clean Function", "Analog Control","2-Year Warranty"]
   },
   {
     id: 5,
-    name: "Saad Asia Plastic Body Dryer",
-    category: "Dryers",
-    price: "Prices may vary |",
-    installmentMonths: "3-10",
-    monthlyPayment: "Rs 2000 - Rs 5000",
-    imageUrl: saadAsiaWMP2,
-    features: ["8.5 KG Capacity", "Direct Motion Motor", "Smart Wash", "Multiple Programs","2-Year Warranty"]
-  },
-  {
-    id: 6,
     name: "Saad Asia Metal Body Dryer",
     category: "Dryers",
     price: "Prices may vary |",
     installmentMonths: "3-10",
     monthlyPayment: "Rs 2000 - Rs 5000",
-    imageUrl: saadAsiaWMM,
+    imageUrl: dryerMetal,
+    features: ["8.5 KG Capacity", "Direct Motion Motor", "Smart Wash", "Multiple Programs","2-Year Warranty"]
+  },
+  {
+    id: 6,
+    name: "Saad Asia Baby Dryer",
+    category: "Dryers",
+    price: "Prices may vary |",
+    installmentMonths: "3-10",
+    monthlyPayment: "Rs 2000 - Rs 5000",
+    imageUrl: babyDryer,
     features: ["8 KG Capacity", "Turbo Wash", "Child Lock", "Multiple Wash Programs","2-Year Warranty"]
   },
   {
